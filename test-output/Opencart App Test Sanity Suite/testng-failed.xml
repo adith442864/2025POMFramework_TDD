@@ -6,12 +6,9 @@
     <classes>
       <class name="com.qa.opencart.tests.LoginPageTest">
         <methods>
-          <include name="forgotPwdLinkExistTest"/>
           <include name="loginPageTitleTest"/>
           <include name="setup"/>
           <include name="attachScreenshot"/>
-          <include name="loginPageURLTest"/>
-          <include name="doLoginTest"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.qa.opencart.tests.LoginPageTest -->

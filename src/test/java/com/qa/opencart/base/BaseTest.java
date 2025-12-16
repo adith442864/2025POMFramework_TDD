@@ -5,13 +5,11 @@ import java.util.Properties;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import org.testng.ITestContext;
-import org.testng.ITestNGMethod;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import com.aventstack.chaintest.plugins.ChainTestListener;
@@ -21,7 +19,6 @@ import com.qa.opencart.pages.LoginPage;
 import com.qa.opencart.pages.ProductInfoPage;
 import com.qa.opencart.pages.RegisterPage;
 import com.qa.opencart.pages.SearchResultsPage;
-import com.qa.opencart.utils.LogUtil;
 
 import io.qameta.allure.Description;
 
@@ -43,9 +40,11 @@ public class BaseTest {
 
 	
 	@Description("init the driver and properties")
-	@Parameters({"browser", "browserversion", "testname"})
+	@Parameters({"browser", "browserVersion", "testname"})
 	@BeforeTest
-	public void setup(String browserName, String browserVersion, String testname) {
+	public void setup(@Optional("chrome") String browserName,
+            @Optional("browserversion") String browserVersion, @Optional("testname")String testname) {
+		
 		df = new DriverFactory();
 		prop = df.initProp();
 		
